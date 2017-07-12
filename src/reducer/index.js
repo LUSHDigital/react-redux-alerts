@@ -1,5 +1,12 @@
 import ErrorMessages from '../constants/messages';
+import SuccessMessages from '../constants/messages';
 import { getIndexByKey } from '../constants/functions';
+
+import {
+  CLEAR_SYSTEM_ALERT,
+  WILL_CLEAR_SYSTEM_ALERT,
+  CLEAR_ALL_SYSTEM_ALERTS
+} from '../actions/types';
 
 // Error reducer
 function systemAlerts(state = [], action) {
@@ -15,6 +22,14 @@ function systemAlerts(state = [], action) {
         }
       ];
 
+    case 'LOG_IN_SUCCESS' :
+      return [
+        {
+          id,
+          error: SuccessMessages.login
+        }
+      ];
+
     case 'API_FAILURE' :
       return [
         ...state,
@@ -24,17 +39,17 @@ function systemAlerts(state = [], action) {
         }
       ];
 
-    case 'WILL_CLEAR_SYSTEM_ALERT' :
+    case WILL_CLEAR_SYSTEM_ALERT :
       return state;
 
-    case 'CLEAR_SYSTEM_ALERT' :
+    case CLEAR_SYSTEM_ALERT :
       const index = getIndexByKey(state, action.alert);
       return [
         ...state.slice(0,index),
         ...state.slice(index + 1)
       ];
 
-    case 'CLEAR_ALL_SYSTEM_ALERTS' :
+    case CLEAR_ALL_SYSTEM_ALERTS :
       return [];
 
     default:

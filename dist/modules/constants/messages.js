@@ -1,5 +1,6 @@
 'use strict';
 
+exports.__esModule = true;
 var ErrorMessages = {
   login: {
     type: 'error',
@@ -8,3 +9,14 @@ var ErrorMessages = {
     }
   }
 };
+
+exports.ErrorMessages = ErrorMessages;
+var SuccessMessages = {
+  login: {
+    type: 'success',
+    message: {
+      en: 'You are now successfully logged in.'
+    }
+  }
+};
+exports.SuccessMessages = SuccessMessages;

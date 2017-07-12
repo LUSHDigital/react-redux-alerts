@@ -8747,7 +8747,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _constantsMessages2 = _interopRequireDefault(_constantsMessages);
 
+	var _constantsMessages3 = _interopRequireDefault(_constantsMessages);
+
 	var _constantsFunctions = __webpack_require__(127);
+
+	var _actionsTypes = __webpack_require__(121);
 
 	// Error reducer
 	function systemAlerts(state, action) {
@@ -8762,20 +8766,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	        error: _constantsMessages2['default'].login
 	      }];
 
+	    case 'LOG_IN_SUCCESS':
+	      return [{
+	        id: id,
+	        error: _constantsMessages3['default'].login
+	      }];
+
 	    case 'API_FAILURE':
 	      return [].concat(_toConsumableArray(state), [{
 	        id: id,
 	        error: action.payload.errorMessage
 	      }]);
 
-	    case 'WILL_CLEAR_SYSTEM_ALERT':
+	    case _actionsTypes.WILL_CLEAR_SYSTEM_ALERT:
 	      return state;
 
-	    case 'CLEAR_SYSTEM_ALERT':
+	    case _actionsTypes.CLEAR_SYSTEM_ALERT:
 	      var index = (0, _constantsFunctions.getIndexByKey)(state, action.alert);
 	      return [].concat(_toConsumableArray(state.slice(0, index)), _toConsumableArray(state.slice(index + 1)));
 
-	    case 'CLEAR_ALL_SYSTEM_ALERTS':
+	    case _actionsTypes.CLEAR_ALL_SYSTEM_ALERTS:
 	      return [];
 
 	    default:
@@ -8792,6 +8802,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
 	var ErrorMessages = {
 	  login: {
 	    type: 'error',
@@ -8800,6 +8813,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }
 	};
+
+	exports.ErrorMessages = ErrorMessages;
+	var SuccessMessages = {
+	  login: {
+	    type: 'success',
+	    message: {
+	      en: 'You are now successfully logged in.'
+	    }
+	  }
+	};
+	exports.SuccessMessages = SuccessMessages;
 
 /***/ },
 /* 127 */
