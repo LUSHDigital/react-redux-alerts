@@ -1,5 +1,5 @@
-import ErrorMessages from '../constants/messages';
-import SuccessMessages from '../constants/messages';
+import { ErrorMessages } from '../constants/messages';
+import { SuccessMessages } from '../constants/messages';
 import { getIndexByKey } from '../constants/functions';
 
 import {

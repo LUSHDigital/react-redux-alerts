@@ -8739,15 +8739,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i]; return arr2; } else { return Array.from(arr); } }
 
 	var _constantsMessages = __webpack_require__(126);
-
-	var _constantsMessages2 = _interopRequireDefault(_constantsMessages);
-
-	var _constantsMessages3 = _interopRequireDefault(_constantsMessages);
 
 	var _constantsFunctions = __webpack_require__(127);
 
@@ -8763,13 +8757,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    case 'LOG_IN_FAIL':
 	      return [{
 	        id: id,
-	        error: _constantsMessages2['default'].login
+	        error: _constantsMessages.ErrorMessages.login
 	      }];
 
 	    case 'LOG_IN_SUCCESS':
 	      return [{
 	        id: id,
-	        error: _constantsMessages3['default'].login
+	        error: _constantsMessages.SuccessMessages.login
 	      }];
 
 	    case 'API_FAILURE':

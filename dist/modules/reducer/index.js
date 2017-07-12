@@ -2,13 +2,7 @@
 
 exports.__esModule = true;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
 var _constantsMessages = require('../constants/messages');
-
-var _constantsMessages2 = _interopRequireDefault(_constantsMessages);
-
-var _constantsMessages3 = _interopRequireDefault(_constantsMessages);
 
 var _constantsFunctions = require('../constants/functions');
 
@@ -24,13 +18,13 @@ function systemAlerts(state, action) {
     case 'LOG_IN_FAIL':
       return [{
         id: id,
-        error: _constantsMessages2['default'].login
+        error: _constantsMessages.ErrorMessages.login
       }];
 
     case 'LOG_IN_SUCCESS':
       return [{
         id: id,
-        error: _constantsMessages3['default'].login
+        error: _constantsMessages.SuccessMessages.login
       }];
 
     case 'API_FAILURE':
