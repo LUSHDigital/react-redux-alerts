@@ -1,4 +1,4 @@
-# manager-component-name
+# react-redux-alerts
 
 Description of component and any special notes
 
