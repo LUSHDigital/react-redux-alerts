@@ -16,6 +16,10 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _reactFontawesome = require('react-fontawesome');
+
+var _reactFontawesome2 = _interopRequireDefault(_reactFontawesome);
+
 var _alert = require('./alert');
 
 var _alert2 = _interopRequireDefault(_alert);
@@ -30,6 +34,8 @@ var Alerts = (function (_Component) {
   }
 
   Alerts.prototype.render = function render() {
+    var _this = this;
+
     var alerts = this.props.alerts;
 
     if (alerts.length > 0) {
@@ -37,7 +43,10 @@ var Alerts = (function (_Component) {
         'div',
         { className: 'alerts__wrapper' },
         alerts.map(function (alert, i) {
-          return _react2['default'].createElement(_alert2['default'], { key: i, i: i, alert: alert });
+          return _react2['default'].createElement(_alert2['default'], { key: i, i: i,
+            alert: alert,
+            closeIcon: _this.props.closeIcon,
+            colours: _this.props.colours });
         })
       );
     }
@@ -50,10 +59,19 @@ var Alerts = (function (_Component) {
 exports['default'] = Alerts;
 
 Alerts.propTypes = {
-  alerts: _propTypes2['default'].array
+  alerts: _propTypes2['default'].array,
+  closeIcon: _propTypes2['default'].any,
+  colours: _propTypes2['default'].object
 };
 
 Alerts.defaultProps = {
-  alerts: []
+  alerts: [],
+  closeIcon: _react2['default'].createElement(_reactFontawesome2['default'], { name: 'times' }),
+  colours: {
+    error: '#ed5565',
+    warning: '#F6A623',
+    info: '#00B5D2',
+    success: '#23cf70'
+  }
 };
 module.exports = exports['default'];

@@ -22,10 +22,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactFontawesome = require('react-fontawesome');
-
-var _reactFontawesome2 = _interopRequireDefault(_reactFontawesome);
-
 var _reactJss = require('react-jss');
 
 var _reactJss2 = _interopRequireDefault(_reactJss);
@@ -114,13 +110,6 @@ var Alert = (function (_Component) {
     this.props.actions.setAlertClear(this.props.alert.id);
   };
 
-  Alert.prototype.renderCloseIcon = function renderCloseIcon() {
-    if (this.props.closeIcon) {
-      return this.props.closeIcon;
-    }
-    return _react2['default'].createElement(_reactFontawesome2['default'], { name: 'times' });
-  };
-
   Alert.prototype.render = function render() {
     var _this = this;
 
@@ -141,7 +130,7 @@ var Alert = (function (_Component) {
             { className: 'alert__close ' + classes.alert__close, onClick: function () {
                 return _this.props.actions.clearAlert(_this.props.alert.id);
               }, role: 'button', tabIndex: '-1' },
-            this.renderCloseIcon()
+            this.props.closeIcon
           )
         )
       );
@@ -161,14 +150,7 @@ Alert.propTypes = {
 };
 
 Alert.defaultProps = {
-  alert: '',
-  colours: {
-    error: '#ed5565',
-    warning: '#F6A623',
-    info: '#00B5D2',
-    success: '#23cf70'
-  },
-  closeIcon: ''
+  alert: ''
 };
 
 function mapDispatchToProps(dispatch) {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import FontAwesome from 'react-fontawesome';
 
 import Alert from './alert';
 
@@ -11,7 +12,10 @@ export default class Alerts extends Component {
       return (
           <div className='alerts__wrapper'>
             { alerts.map((alert, i) =>
-                (<Alert key={ i } i={ i } alert={ alert } />)
+                (<Alert key={ i } i={ i }
+                        alert={ alert }
+                        closeIcon={ this.props.closeIcon }
+                        colours={ this.props.colours } />)
             )}
           </div>
       );
@@ -21,9 +25,18 @@ export default class Alerts extends Component {
 }
 
 Alerts.propTypes = {
-  alerts: PropTypes.array
+  alerts: PropTypes.array,
+  closeIcon: PropTypes.any,
+  colours: PropTypes.object
 };
 
 Alerts.defaultProps = {
-  alerts: []
+  alerts: [],
+  closeIcon: <FontAwesome name='times' />,
+  colours: {
+    error: '#ed5565',
+    warning: '#F6A623',
+    info: '#00B5D2',
+    success: '#23cf70'
+  }
 };

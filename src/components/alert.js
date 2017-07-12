@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import FontAwesome from 'react-fontawesome';
 import injectSheet from 'react-jss';
 
 import * as actionCreators from '../actions';
@@ -72,13 +71,6 @@ class Alert extends Component {
     this.props.actions.setAlertClear(this.props.alert.id);
   }
 
-  renderCloseIcon() {
-    if (this.props.closeIcon) {
-      return this.props.closeIcon;
-    }
-    return <FontAwesome name='times' />;
-  }
-
   render() {
     const { alert, classes } = this.props;
     if (alert) {
@@ -87,7 +79,7 @@ class Alert extends Component {
             <div className='cell'>
               { alert.error.message.en}
               <a className={ `alert__close ${ classes.alert__close }` } onClick={ () => this.props.actions.clearAlert(this.props.alert.id) } role='button' tabIndex='-1'>
-                { this.renderCloseIcon() }
+                { this.props.closeIcon }
               </a>
             </div>
           </div>
@@ -106,14 +98,7 @@ Alert.propTypes = {
 };
 
 Alert.defaultProps = {
-  alert: '',
-  colours: {
-    error: '#ed5565',
-    warning: '#F6A623',
-    info: '#00B5D2',
-    success: '#23cf70'
-  },
-  closeIcon: ''
+  alert: ''
 };
 
 function mapDispatchToProps(dispatch) {
