@@ -157,20 +157,28 @@ return /******/ (function(modules) { // webpackBootstrap
 	var styles = {
 	  alert: {
 	    width: '100%',
-	    background: '#ed5565',
+	    background: function background(props) {
+	      return props.colours.success;
+	    },
 	    color: '#fff',
 	    padding: '5px 10px',
 	    fontSize: '12px',
 	    textAlign: 'left',
 	    position: 'relative',
 	    '&.error': {
-	      background: '#ed5565'
+	      background: function background(props) {
+	        return props.colours.error;
+	      }
 	    },
 	    '&.warning': {
-	      background: '#ed5565'
+	      background: function background(props) {
+	        return props.colours.warning;
+	      }
 	    },
 	    '&.info': {
-	      background: '#00B5D2'
+	      background: function background(props) {
+	        return props.colours.info;
+	      }
 	    },
 	    '&:after': {
 	      display: 'block',
@@ -228,6 +236,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.props.actions.setAlertClear(this.props.alert.id);
 	    }
 	  }, {
+	    key: 'renderCloseIcon',
+	    value: function renderCloseIcon() {
+	      if (this.props.closeIcon) {
+	        return this.props.closeIcon;
+	      }
+	      return _react2['default'].createElement(_reactFontawesome2['default'], { name: 'times' });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this = this;
@@ -249,7 +265,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	              { className: 'alert__close ' + classes.alert__close, onClick: function () {
 	                  return _this.props.actions.clearAlert(_this.props.alert.id);
 	                }, role: 'button', tabIndex: '-1' },
-	              _react2['default'].createElement(_reactFontawesome2['default'], { name: 'times' })
+	              this.renderCloseIcon()
 	            )
 	          )
 	        );
@@ -264,11 +280,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	Alert.propTypes = {
 	  alert: _propTypes2['default'].any,
 	  setAlertClear: _propTypes2['default'].func,
-	  clearAlert: _propTypes2['default'].func
+	  clearAlert: _propTypes2['default'].func,
+	  colours: _propTypes2['default'].object,
+	  closeIcon: _propTypes2['default'].any
 	};
 
 	Alert.defaultProps = {
-	  alert: ''
+	  alert: '',
+	  colours: {
+	    error: '#ed5565',
+	    warning: '#F6A623',
+	    info: '#00B5D2',
+	    success: '#23cf70'
+	  },
+	  closeIcon: ''
 	};
 
 	function mapDispatchToProps(dispatch) {

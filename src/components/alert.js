@@ -10,20 +10,20 @@ import * as actionCreators from '../actions';
 const styles = {
   alert: {
     width: '100%',
-    background: '#ed5565',
+    background: props => props.colours.success,
     color: '#fff',
     padding: '5px 10px',
     fontSize: '12px',
     textAlign: 'left',
     position: 'relative',
     '&.error': {
-      background: '#ed5565'
+      background: props => props.colours.error
     },
     '&.warning': {
-      background: '#ed5565'
+      background: props => props.colours.warning
     },
     '&.info': {
-      background: '#00B5D2'
+      background: props => props.colours.info
     },
     '&:after': {
       display: 'block',
@@ -72,6 +72,13 @@ class Alert extends Component {
     this.props.actions.setAlertClear(this.props.alert.id);
   }
 
+  renderCloseIcon() {
+    if (this.props.closeIcon) {
+      return this.props.closeIcon;
+    }
+    return <FontAwesome name='times' />;
+  }
+
   render() {
     const { alert, classes } = this.props;
     if (alert) {
@@ -80,7 +87,7 @@ class Alert extends Component {
             <div className='cell'>
               { alert.error.message.en}
               <a className={ `alert__close ${ classes.alert__close }` } onClick={ () => this.props.actions.clearAlert(this.props.alert.id) } role='button' tabIndex='-1'>
-                <FontAwesome name='times' />
+                { this.renderCloseIcon() }
               </a>
             </div>
           </div>
@@ -93,11 +100,20 @@ class Alert extends Component {
 Alert.propTypes = {
   alert: PropTypes.any,
   setAlertClear: PropTypes.func,
-  clearAlert: PropTypes.func
+  clearAlert: PropTypes.func,
+  colours: PropTypes.object,
+  closeIcon: PropTypes.any
 };
 
 Alert.defaultProps = {
-  alert: ''
+  alert: '',
+  colours: {
+    error: '#ed5565',
+    warning: '#F6A623',
+    info: '#00B5D2',
+    success: '#23cf70'
+  },
+  closeIcon: ''
 };
 
 function mapDispatchToProps(dispatch) {
