@@ -76,11 +76,13 @@ class Alert extends Component {
     if (alert) {
       return (
           <div className={ `alert ${ classes.alert } ${ alert.error.type }` }>
-            <div className='cell'>
-              { alert.error.message.en}
-              <a className={ `alert__close ${ classes.alert__close }` } onClick={ () => this.props.actions.clearAlert(this.props.alert.id) } role='button' tabIndex='-1'>
-                { this.props.closeIcon }
-              </a>
+            <div className='container'>
+              <div className='cell'>
+                { alert.error.message.en}
+                <a className={ `alert__close ${ classes.alert__close }` } onClick={ () => this.props.actions.clearAlert(this.props.alert.id) } role='button' tabIndex='-1'>
+                  { this.props.closeIcon }
+                </a>
+              </div>
             </div>
           </div>
       );

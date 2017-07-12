@@ -123,14 +123,18 @@ var Alert = (function (_Component) {
         { className: 'alert ' + classes.alert + ' ' + alert.error.type },
         _react2['default'].createElement(
           'div',
-          { className: 'cell' },
-          alert.error.message.en,
+          { className: 'container' },
           _react2['default'].createElement(
-            'a',
-            { className: 'alert__close ' + classes.alert__close, onClick: function () {
-                return _this.props.actions.clearAlert(_this.props.alert.id);
-              }, role: 'button', tabIndex: '-1' },
-            this.props.closeIcon
+            'div',
+            { className: 'cell' },
+            alert.error.message.en,
+            _react2['default'].createElement(
+              'a',
+              { className: 'alert__close ' + classes.alert__close, onClick: function () {
+                  return _this.props.actions.clearAlert(_this.props.alert.id);
+                }, role: 'button', tabIndex: '-1' },
+              this.props.closeIcon
+            )
           )
         )
       );
