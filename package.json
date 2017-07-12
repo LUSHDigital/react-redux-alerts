@@ -1,6 +1,6 @@
 {
   "name": "@salocreative/react-redux-alerts",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "React-Redux component for handling system alerts",
   "main": "./dist/modules/index.js",
   "scripts": {

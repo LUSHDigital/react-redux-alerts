@@ -28,6 +28,11 @@ function systemAlerts(state, action) {
       }];
 
     case _actionsTypes.API_FAILURE:
+      return [].concat(state, [{
+        id: id,
+        error: action.payload.errorMessage
+      }]);
+
     case _actionsTypes.ADD_ALERT:
       return [].concat(state, [{
         id: id,

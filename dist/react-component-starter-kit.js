@@ -8779,6 +8779,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }];
 
 	    case _actionsTypes.API_FAILURE:
+	      return [].concat(_toConsumableArray(state), [{
+	        id: id,
+	        error: action.payload.errorMessage
+	      }]);
+
 	    case _actionsTypes.ADD_ALERT:
 	      return [].concat(_toConsumableArray(state), [{
 	        id: id,
