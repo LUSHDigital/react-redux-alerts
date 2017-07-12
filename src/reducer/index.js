@@ -5,7 +5,9 @@ import { getIndexByKey } from '../constants/functions';
 import {
   CLEAR_SYSTEM_ALERT,
   WILL_CLEAR_SYSTEM_ALERT,
-  CLEAR_ALL_SYSTEM_ALERTS
+  CLEAR_ALL_SYSTEM_ALERTS,
+  ADD_ALERT,
+  API_FAILURE
 } from '../actions/types';
 
 // Error reducer
@@ -30,12 +32,21 @@ function systemAlerts(state = [], action) {
         }
       ];
 
-    case 'API_FAILURE' :
+    case API_FAILURE :
       return [
         ...state,
         {
           id,
           error: action.payload.errorMessage
+        }
+      ];
+
+    case ADD_ALERT :
+      return [
+        ...state,
+        {
+          id,
+          error: action.payload.message
         }
       ];
 

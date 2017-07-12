@@ -31,6 +31,47 @@ import { systemAlerts } from '@salocreative/react-redux-alerts';
 ```
 and add to your combine reducer function. Next make sure that `systemAlerts` is mapped to props and connected to your component
 
+## ADD ALERTS
+You can add alerts either via the `API_FAILURE` or `ADD_ALERT` action types. Both of these should be imported from this package. Although functionality is currently the same they are deliberately seperated for future development.
+
+Both actions need to be dispatched with a payload as below:
+
+```
+return {
+    type: API_FAILURE,
+    payload: {
+      errorMessage
+    }
+};
+
+```
+
+or ADD_ALERT as per:
+
+```
+return {
+   type: ADD_ALERT,
+   payload: {
+     message
+   }
+ };
+```
+
+## Remove Alerts
+Currently alerts timeout after 5s and are removed from state. It is possible to manually remove all alerts from state via the following action types
+
+```
+return {
+   type: CLEAR_ALL_SYSTEM_ALERTS
+
+};
+```
+
+###Further Development
+- Add ability to set dismissable true/false
+- Ability to set timeouts per alert
+- Improve documentation
+
 ## LICENSE
 
 MIT

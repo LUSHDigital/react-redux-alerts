@@ -27,10 +27,11 @@ function systemAlerts(state, action) {
         error: _constantsMessages.SuccessMessages.login
       }];
 
-    case 'API_FAILURE':
+    case _actionsTypes.API_FAILURE:
+    case _actionsTypes.ADD_ALERT:
       return [].concat(state, [{
         id: id,
-        error: action.payload.errorMessage
+        error: action.payload.message
       }]);
 
     case _actionsTypes.WILL_CLEAR_SYSTEM_ALERT:

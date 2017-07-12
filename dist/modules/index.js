@@ -22,7 +22,11 @@ var _reducer = require('./reducer');
 
 var _reducer2 = _interopRequireDefault(_reducer);
 
+var _actionsTypes = require('./actions/types');
+
 exports.Alert = _componentsAlert2['default'];
 exports.Alerts = _components2['default'];
 exports.alertActionCreators = alertActionCreators;
 exports.systemAlerts = _reducer2['default'];
+exports.API_FAILURE = _actionsTypes.API_FAILURE;
+exports.ADD_ALERT = _actionsTypes.ADD_ALERT;

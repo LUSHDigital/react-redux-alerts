@@ -103,10 +103,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
+	var _actionsTypes = __webpack_require__(121);
+
 	exports.Alert = _componentsAlert2['default'];
 	exports.Alerts = _components2['default'];
 	exports.alertActionCreators = alertActionCreators;
 	exports.systemAlerts = _reducer2['default'];
+	exports.API_FAILURE = _actionsTypes.API_FAILURE;
+	exports.ADD_ALERT = _actionsTypes.ADD_ALERT;
 
 /***/ },
 /* 1 */
@@ -8474,6 +8478,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.WILL_CLEAR_SYSTEM_ALERT = WILL_CLEAR_SYSTEM_ALERT;
 	var CLEAR_ALL_SYSTEM_ALERTS = 'CLEAR_ALL_SYSTEM_ALERTS';
 	exports.CLEAR_ALL_SYSTEM_ALERTS = CLEAR_ALL_SYSTEM_ALERTS;
+	var API_FAILURE = 'API_FAILURE';
+	exports.API_FAILURE = API_FAILURE;
+	var ADD_ALERT = 'ADD_ALERT';
+	exports.ADD_ALERT = ADD_ALERT;
 
 /***/ },
 /* 122 */
@@ -8770,10 +8778,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        error: _constantsMessages.SuccessMessages.login
 	      }];
 
-	    case 'API_FAILURE':
+	    case _actionsTypes.API_FAILURE:
+	    case _actionsTypes.ADD_ALERT:
 	      return [].concat(_toConsumableArray(state), [{
 	        id: id,
-	        error: action.payload.errorMessage
+	        error: action.payload.message
 	      }]);
 
 	    case _actionsTypes.WILL_CLEAR_SYSTEM_ALERT:
