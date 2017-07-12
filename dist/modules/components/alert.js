@@ -120,14 +120,14 @@ var Alert = (function (_Component) {
     if (alert) {
       return _react2['default'].createElement(
         'div',
-        { className: 'alert ' + classes.alert + ' ' + alert.error.type },
+        { className: 'alert ' + classes.alert + ' ' + alert.alert.type },
         _react2['default'].createElement(
           'div',
           { className: 'container' },
           _react2['default'].createElement(
             'div',
             { className: 'cell' },
-            alert.error.message.en,
+            alert.alert.message,
             _react2['default'].createElement(
               'a',
               { className: 'alert__close ' + classes.alert__close, onClick: function () {

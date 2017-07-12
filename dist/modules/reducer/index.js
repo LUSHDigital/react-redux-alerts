@@ -18,25 +18,25 @@ function systemAlerts(state, action) {
     case 'LOG_IN_FAIL':
       return [{
         id: id,
-        error: _constantsMessages.ErrorMessages.login
+        alert: _constantsMessages.ErrorMessages.login
       }];
 
     case 'LOG_IN_SUCCESS':
       return [{
         id: id,
-        error: _constantsMessages.SuccessMessages.login
+        alert: _constantsMessages.SuccessMessages.login
       }];
 
     case _actionsTypes.API_FAILURE:
       return [].concat(state, [{
         id: id,
-        error: action.payload.errorMessage
+        alert: action.payload.errorMessage
       }]);
 
     case _actionsTypes.ADD_ALERT:
       return [].concat(state, [{
         id: id,
-        error: action.payload.message
+        alert: action.payload.message
       }]);
 
     case _actionsTypes.WILL_CLEAR_SYSTEM_ALERT:

@@ -247,14 +247,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	      if (alert) {
 	        return _react2['default'].createElement(
 	          'div',
-	          { className: 'alert ' + classes.alert + ' ' + alert.error.type },
+	          { className: 'alert ' + classes.alert + ' ' + alert.alert.type },
 	          _react2['default'].createElement(
 	            'div',
 	            { className: 'container' },
 	            _react2['default'].createElement(
 	              'div',
 	              { className: 'cell' },
-	              alert.error.message.en,
+	              alert.alert.message,
 	              _react2['default'].createElement(
 	                'a',
 	                { className: 'alert__close ' + classes.alert__close, onClick: function () {
@@ -8769,25 +8769,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	    case 'LOG_IN_FAIL':
 	      return [{
 	        id: id,
-	        error: _constantsMessages.ErrorMessages.login
+	        alert: _constantsMessages.ErrorMessages.login
 	      }];
 
 	    case 'LOG_IN_SUCCESS':
 	      return [{
 	        id: id,
-	        error: _constantsMessages.SuccessMessages.login
+	        alert: _constantsMessages.SuccessMessages.login
 	      }];
 
 	    case _actionsTypes.API_FAILURE:
 	      return [].concat(_toConsumableArray(state), [{
 	        id: id,
-	        error: action.payload.errorMessage
+	        alert: action.payload.errorMessage
 	      }]);
 
 	    case _actionsTypes.ADD_ALERT:
 	      return [].concat(_toConsumableArray(state), [{
 	        id: id,
-	        error: action.payload.message
+	        alert: action.payload.message
 	      }]);
 
 	    case _actionsTypes.WILL_CLEAR_SYSTEM_ALERT:
@@ -8820,9 +8820,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var ErrorMessages = {
 	  login: {
 	    type: 'error',
-	    message: {
-	      en: 'Your username or password is incorrect.'
-	    }
+	    message: 'Your username or password is incorrect.'
 	  }
 	};
 
@@ -8830,9 +8828,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var SuccessMessages = {
 	  login: {
 	    type: 'success',
-	    message: {
-	      en: 'You are now successfully logged in.'
-	    }
+	    message: 'You are now successfully logged in.'
 	  }
 	};
 	exports.SuccessMessages = SuccessMessages;

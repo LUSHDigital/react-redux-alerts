@@ -75,10 +75,10 @@ class Alert extends Component {
     const { alert, classes } = this.props;
     if (alert) {
       return (
-          <div className={ `alert ${ classes.alert } ${ alert.error.type }` }>
+          <div className={ `alert ${ classes.alert } ${ alert.alert.type }` }>
             <div className='container'>
               <div className='cell'>
-                { alert.error.message.en}
+                { alert.alert.message}
                 <a className={ `alert__close ${ classes.alert__close }` } onClick={ () => this.props.actions.clearAlert(this.props.alert.id) } role='button' tabIndex='-1'>
                   { this.props.closeIcon }
                 </a>

@@ -20,7 +20,7 @@ function systemAlerts(state = [], action) {
       return [
         {
           id,
-          error: ErrorMessages.login
+          alert: ErrorMessages.login
         }
       ];
 
@@ -28,7 +28,7 @@ function systemAlerts(state = [], action) {
       return [
         {
           id,
-          error: SuccessMessages.login
+          alert: SuccessMessages.login
         }
       ];
 
@@ -37,7 +37,7 @@ function systemAlerts(state = [], action) {
         ...state,
         {
           id,
-          error: action.payload.errorMessage
+          alert: action.payload.errorMessage
         }
       ];
 
@@ -46,7 +46,7 @@ function systemAlerts(state = [], action) {
         ...state,
         {
           id,
-          error: action.payload.message
+          alert: action.payload.message
         }
       ];
 
