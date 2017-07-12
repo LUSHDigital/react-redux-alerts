@@ -34,9 +34,9 @@ Alerts.defaultProps = {
   alerts: [],
   closeIcon: <FontAwesome name='times' />,
   colours: {
-    error: '#ed5565',
+    error: '#D0021B',
     warning: '#F6A623',
-    info: '#00B5D2',
-    success: '#23cf70'
+    info: '#8F8F8F',
+    success: '#00A44C'
   }
 };
