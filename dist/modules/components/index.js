@@ -16,10 +16,6 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactFontawesome = require('react-fontawesome');
-
-var _reactFontawesome2 = _interopRequireDefault(_reactFontawesome);
-
 var _alert = require('./alert');
 
 var _alert2 = _interopRequireDefault(_alert);
@@ -66,7 +62,11 @@ Alerts.propTypes = {
 
 Alerts.defaultProps = {
   alerts: [],
-  closeIcon: _react2['default'].createElement(_reactFontawesome2['default'], { name: 'times' }),
+  closeIcon: _react2['default'].createElement(
+    'span',
+    null,
+    'X'
+  ),
   colours: {
     error: '#D0021B',
     warning: '#F6A623',

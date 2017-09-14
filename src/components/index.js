@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import FontAwesome from 'react-fontawesome';
 
 import Alert from './alert';
 
@@ -32,7 +31,7 @@ Alerts.propTypes = {
 
 Alerts.defaultProps = {
   alerts: [],
-  closeIcon: <FontAwesome name='times' />,
+  closeIcon: <span>X</span>,
   colours: {
     error: '#D0021B',
     warning: '#F6A623',

@@ -1,6 +1,6 @@
 {
   "name": "@salocreative/react-redux-alerts",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "React-Redux component for handling system alerts",
   "main": "./dist/modules/index.js",
   "scripts": {
@@ -21,7 +21,6 @@
   "dependencies": {
     "prop-types": "^15.5.10",
     "react": "^0.14.2",
-    "react-fontawesome": "^1.6.1",
     "react-jss": "^7.0.0-pre.1",
     "react-redux": "^5.0.5",
     "redux": "^3.7.1"
