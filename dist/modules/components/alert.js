@@ -2,6 +2,10 @@
 
 exports.__esModule = true;
 
+var _templateObject = _taggedTemplateLiteralLoose(['\n  from: {\n    width: 0\n  },\n  to: {\n    width: 100%\n  }\n'], ['\n  from: {\n    width: 0\n  },\n  to: {\n    width: 100%\n  }\n']),
+    _templateObject2 = _taggedTemplateLiteralLoose(['\n  width: 100%;\n  background: ', '\n  color: #fff;\n  padding: 5px 10px;\n  font-size: 12px;\n  text-align: left;\n  position: relative;\n  &.error: {\n    background: ', '\n  },\n  &.warning: {\n    background: ', '\n  },\n  \'&.info: {\n    background: ', '\n  },\n  &:after: {\n    display: block;\n    content: "";\n    width: 0;\n    left: 0;\n    top: 0;\n    position: absolute;\n    height: 2px;\n    background: rgba(255,255,255,0.3);\n    webkit-animation-fill-mode: both;\n    animation-fill-mode: both;\n    webkit-animation: loadSwipe 5s linear;\n    animation: ', ' 2s linear infinite;      \n  }\n'], ['\n  width: 100%;\n  background: ', '\n  color: #fff;\n  padding: 5px 10px;\n  font-size: 12px;\n  text-align: left;\n  position: relative;\n  &.error: {\n    background: ', '\n  },\n  &.warning: {\n    background: ', '\n  },\n  \'&.info: {\n    background: ', '\n  },\n  &:after: {\n    display: block;\n    content: "";\n    width: 0;\n    left: 0;\n    top: 0;\n    position: absolute;\n    height: 2px;\n    background: rgba(255,255,255,0.3);\n    webkit-animation-fill-mode: both;\n    animation-fill-mode: both;\n    webkit-animation: loadSwipe 5s linear;\n    animation: ', ' 2s linear infinite;      \n  }\n']),
+    _templateObject3 = _taggedTemplateLiteralLoose(['\n  position: absolute;\n  top: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  right: 0;\n  width: 30px;\n  height: 100%;\n  opacity: 0.6;\n  cursor: pointer;\n  transition: opacity 0.3s linear;\n  &:hover: {\n    opacity: 1.0;\n  }\n'], ['\n  position: absolute;\n  top: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  right: 0;\n  width: 30px;\n  height: 100%;\n  opacity: 0.6;\n  cursor: pointer;\n  transition: opacity 0.3s linear;\n  &:hover: {\n    opacity: 1.0;\n  }\n']);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -9,6 +13,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
 
 var _react = require('react');
 
@@ -22,80 +28,27 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _reactJss = require('react-jss');
+var _styledComponents = require('styled-components');
 
-var _reactJss2 = _interopRequireDefault(_reactJss);
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
 
 var _actions = require('../actions');
 
 var actionCreators = _interopRequireWildcard(_actions);
 
-var styles = {
-  alert: {
-    width: '100%',
-    background: function background(props) {
-      return props.colours.success;
-    },
-    color: '#fff',
-    padding: '5px 10px',
-    fontSize: '12px',
-    textAlign: 'left',
-    position: 'relative',
-    '&.error': {
-      background: function background(props) {
-        return props.colours.error;
-      }
-    },
-    '&.warning': {
-      background: function background(props) {
-        return props.colours.warning;
-      }
-    },
-    '&.info': {
-      background: function background(props) {
-        return props.colours.info;
-      }
-    },
-    '&:after': {
-      display: 'block',
-      content: '""',
-      width: '0',
-      left: '0',
-      top: '0',
-      position: 'absolute',
-      height: '2px',
-      background: 'rgba(255,255,255,0.3)',
-      webkitAnimationFillMode: 'both',
-      animationFillMode: 'both',
-      webkitAnimation: 'loadSwipe 5s linear',
-      animation: 'loadSwipe 5s linear'
-    }
-  },
-  alert__close: {
-    position: 'absolute',
-    top: '0',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    right: '0',
-    width: '30px',
-    height: '100%',
-    opacity: '0.6',
-    cursor: 'pointer',
-    transition: 'opacity 0.3s linear',
-    '&:hover': {
-      opacity: '1.0'
-    }
-  },
-  '@keyframes loadSwipe': {
-    '0%': {
-      width: '0'
-    },
-    '100%': {
-      width: '100%'
-    }
-  }
-};
+var loadSwipe = _styledComponents.keyframes(_templateObject);
+
+var AlertWrapper = _styledComponents2['default'].div(_templateObject2, function (props) {
+  return props.colours.success;
+}, function (props) {
+  return props.colours.error;
+}, function (props) {
+  return props.colours.warning;
+}, function (props) {
+  return props.colours.info;
+}, loadSwipe);
+
+var Close = _styledComponents2['default'].a(_templateObject3);
 
 var Alert = (function (_Component) {
   _inherits(Alert, _Component);
@@ -113,14 +66,12 @@ var Alert = (function (_Component) {
   Alert.prototype.render = function render() {
     var _this = this;
 
-    var _props = this.props;
-    var alert = _props.alert;
-    var classes = _props.classes;
+    var alert = this.props.alert;
 
     if (alert) {
       return _react2['default'].createElement(
-        'div',
-        { className: 'alert ' + classes.alert + ' ' + alert.alert.type },
+        AlertWrapper,
+        { className: 'alert ' + alert.alert.type },
         _react2['default'].createElement(
           'div',
           { className: 'container' },
@@ -129,8 +80,8 @@ var Alert = (function (_Component) {
             { className: 'cell' },
             alert.alert.message,
             _react2['default'].createElement(
-              'a',
-              { className: 'alert__close ' + classes.alert__close, onClick: function () {
+              Close,
+              { className: 'alert__close', onClick: function () {
                   return _this.props.actions.clearAlert(_this.props.alert.id);
                 }, role: 'button', tabIndex: '-1' },
               this.props.closeIcon
@@ -161,5 +112,5 @@ function mapDispatchToProps(dispatch) {
   return { actions: _redux.bindActionCreators(actionCreators, dispatch) };
 }
 
-exports['default'] = _reactRedux.connect(null, mapDispatchToProps)(_reactJss2['default'](styles)(Alert));
+exports['default'] = _reactRedux.connect(null, mapDispatchToProps)(Alert);
 module.exports = exports['default'];

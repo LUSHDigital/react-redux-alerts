@@ -5,7 +5,7 @@
   "main": "./dist/modules/index.js",
   "scripts": {
     "bundle-demo": "webpack --config webpack.config.demo.js",
-    "bundle-dist": "webpack --config webpack.config.dist.js",
+    "bundle-dist": "webpack -p --config webpack.config.dist.js",
     "bundle-modules": "rm -rf dist/modules && babel src --loose --out-dir dist/modules",
     "bundle": "npm run bundle-dist && npm run bundle-modules",
     "demo": "webpack-dev-server --config webpack.config.demo.js",
@@ -21,9 +21,9 @@
   "dependencies": {
     "prop-types": "^15.5.10",
     "react": "^0.14.2",
-    "react-jss": "^7.0.0-pre.1",
     "react-redux": "^5.0.5",
-    "redux": "^3.7.1"
+    "redux": "^3.7.1",
+    "styled-components": "2.2.1"
   },
   "devDependencies": {
     "babel": "5.8.29",
