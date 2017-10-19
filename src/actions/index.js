@@ -27,7 +27,7 @@ export function clearAllSystemAlerts() {
 }
 
 export function setAlertClear(alert) {
-  return function (dispatch) {
+  return function(dispatch) {
     dispatch(willClearSystemAlert(alert));
     setTimeout(() => {
       dispatch(clearSystemAlert(alert));
@@ -36,13 +36,13 @@ export function setAlertClear(alert) {
 }
 
 export function clearAlert(alert) {
-  return function (dispatch) {
+  return function(dispatch) {
     dispatch(clearSystemAlert(alert));
   }
 }
 
 export function clearAlerts() {
-  return function (dispatch) {
+  return function(dispatch) {
     dispatch(clearAllSystemAlerts());
   }
 }
