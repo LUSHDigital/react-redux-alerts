@@ -3,8 +3,8 @@
 exports.__esModule = true;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  from: {\n    width: 0\n  },\n  to: {\n    width: 100%\n  }\n'], ['\n  from: {\n    width: 0\n  },\n  to: {\n    width: 100%\n  }\n']),
-    _templateObject2 = _taggedTemplateLiteralLoose(['\n  width: 100%;\n  background: ', '\n  color: #fff;\n  padding: 5px 10px;\n  font-size: 12px;\n  text-align: left;\n  position: relative;\n  &.error: {\n    background: ', '\n  },\n  &.warning: {\n    background: ', '\n  },\n  \'&.info: {\n    background: ', '\n  },\n  &:after: {\n    display: block;\n    content: "";\n    width: 0;\n    left: 0;\n    top: 0;\n    position: absolute;\n    height: 2px;\n    background: rgba(255,255,255,0.3);\n    webkit-animation-fill-mode: both;\n    animation-fill-mode: both;\n    webkit-animation: loadSwipe 5s linear;\n    animation: ', ' 2s linear infinite;      \n  }\n'], ['\n  width: 100%;\n  background: ', '\n  color: #fff;\n  padding: 5px 10px;\n  font-size: 12px;\n  text-align: left;\n  position: relative;\n  &.error: {\n    background: ', '\n  },\n  &.warning: {\n    background: ', '\n  },\n  \'&.info: {\n    background: ', '\n  },\n  &:after: {\n    display: block;\n    content: "";\n    width: 0;\n    left: 0;\n    top: 0;\n    position: absolute;\n    height: 2px;\n    background: rgba(255,255,255,0.3);\n    webkit-animation-fill-mode: both;\n    animation-fill-mode: both;\n    webkit-animation: loadSwipe 5s linear;\n    animation: ', ' 2s linear infinite;      \n  }\n']),
-    _templateObject3 = _taggedTemplateLiteralLoose(['\n  position: absolute;\n  top: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  right: 0;\n  width: 30px;\n  height: 100%;\n  opacity: 0.6;\n  cursor: pointer;\n  transition: opacity 0.3s linear;\n  &:hover: {\n    opacity: 1.0;\n  }\n'], ['\n  position: absolute;\n  top: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  right: 0;\n  width: 30px;\n  height: 100%;\n  opacity: 0.6;\n  cursor: pointer;\n  transition: opacity 0.3s linear;\n  &:hover: {\n    opacity: 1.0;\n  }\n']);
+    _templateObject2 = _taggedTemplateLiteralLoose(['\n  width: 100%;\n  background: ', ';\n  color: #fff;\n  padding: 5px 10px;\n  font-size: 12px;\n  text-align: left;\n  position: relative;\n  &.error: {\n    background: ', ';\n  }\n  &.warning: {\n    background: ', ';\n  }\n  &.info: {\n    background: ', ';\n  }\n  &:after: {\n    display: block;\n    content: "";\n    width: 0;\n    left: 0;\n    top: 0;\n    position: absolute;\n    height: 2px;\n    background: rgba(255,255,255,0.3);\n    webkit-animation-fill-mode: both;\n    animation-fill-mode: both;\n    webkit-animation: loadSwipe 5s linear;\n    animation: ', ' 2s linear infinite;      \n  }\n'], ['\n  width: 100%;\n  background: ', ';\n  color: #fff;\n  padding: 5px 10px;\n  font-size: 12px;\n  text-align: left;\n  position: relative;\n  &.error: {\n    background: ', ';\n  }\n  &.warning: {\n    background: ', ';\n  }\n  &.info: {\n    background: ', ';\n  }\n  &:after: {\n    display: block;\n    content: "";\n    width: 0;\n    left: 0;\n    top: 0;\n    position: absolute;\n    height: 2px;\n    background: rgba(255,255,255,0.3);\n    webkit-animation-fill-mode: both;\n    animation-fill-mode: both;\n    webkit-animation: loadSwipe 5s linear;\n    animation: ', ' 2s linear infinite;      \n  }\n']),
+    _templateObject3 = _taggedTemplateLiteralLoose(['\n  position: absolute;\n  top: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  right: 0;\n  width: 30px;\n  height: 100%;\n  opacity: 0.6;\n  cursor: pointer;\n  transition: opacity 0.3s linear;\n  &:hover: {\n    opacity: 1;\n  }\n'], ['\n  position: absolute;\n  top: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  right: 0;\n  width: 30px;\n  height: 100%;\n  opacity: 0.6;\n  cursor: pointer;\n  transition: opacity 0.3s linear;\n  &:hover: {\n    opacity: 1;\n  }\n']);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
 
@@ -66,12 +66,14 @@ var Alert = (function (_Component) {
   Alert.prototype.render = function render() {
     var _this = this;
 
-    var alert = this.props.alert;
+    var _props = this.props;
+    var alert = _props.alert;
+    var colours = _props.colours;
 
     if (alert) {
       return _react2['default'].createElement(
         AlertWrapper,
-        { className: 'alert ' + alert.alert.type },
+        { className: 'alert ' + alert.alert.type, colours: colours },
         _react2['default'].createElement(
           'div',
           { className: 'container' },

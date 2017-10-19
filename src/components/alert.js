@@ -17,21 +17,21 @@ const loadSwipe = keyframes`
 
 const AlertWrapper = styled.div`
   width: 100%;
-  background: ${props => props.colours.success}
+  background: ${props => props.colours.success};
   color: #fff;
   padding: 5px 10px;
   font-size: 12px;
   text-align: left;
   position: relative;
   &.error: {
-    background: ${props => props.colours.error}
-  },
+    background: ${props => props.colours.error};
+  }
   &.warning: {
-    background: ${props => props.colours.warning}
-  },
-  '&.info: {
-    background: ${props => props.colours.info}
-  },
+    background: ${props => props.colours.warning};
+  }
+  &.info: {
+    background: ${props => props.colours.info};
+  }
   &:after: {
     display: block;
     content: "";
@@ -61,7 +61,7 @@ const Close = styled.a`
   cursor: pointer;
   transition: opacity 0.3s linear;
   &:hover: {
-    opacity: 1.0;
+    opacity: 1;
   }
 `
 
@@ -72,10 +72,10 @@ class Alert extends Component {
   }
 
   render() {
-    const { alert } = this.props;
+    const { alert, colours } = this.props;
     if (alert) {
       return (
-          <AlertWrapper className={ `alert ${ alert.alert.type }` }>
+          <AlertWrapper className={ `alert ${ alert.alert.type }` } colours={ colours }>
             <div className='container'>
               <div className='cell'>
                 { alert.alert.message}
