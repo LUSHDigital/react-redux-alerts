@@ -7,32 +7,32 @@ import styled, { keyframes } from 'styled-components';
 import * as actionCreators from '../actions';
 
 const loadSwipe = keyframes`
-  from: {
+  from {
     width: 0
   },
-  to: {
+  to {
     width: 100%
   }
 `;
 
 const AlertWrapper = styled.div`
   width: 100%;
-  background: ${props => props.colours.success};
+  background: ${ props => props.colours.success };
   color: #fff;
   padding: 5px 10px;
   font-size: 12px;
   text-align: left;
   position: relative;
-  &.error: {
-    background: ${props => props.colours.error};
+  &.error {
+    background: ${ props => props.colours.error };
   }
-  &.warning: {
-    background: ${props => props.colours.warning};
+  &.warning {
+    background: ${ props => props.colours.warning };
   }
-  &.info: {
-    background: ${props => props.colours.info};
+  &.info {
+    background: ${ props => props.colours.info };
   }
-  &:after: {
+  &:after {
     display: block;
     content: "";
     width: 0;
@@ -43,8 +43,8 @@ const AlertWrapper = styled.div`
     background: rgba(255,255,255,0.3);
     webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    webkit-animation: loadSwipe 5s linear;
-    animation: ${loadSwipe} 2s linear infinite;      
+    webkit-animation: ${ loadSwipe } 5s linear;
+    animation: ${ loadSwipe } 2s linear infinite;      
   }
 `;
 
@@ -60,7 +60,7 @@ const Close = styled.a`
   opacity: 0.6;
   cursor: pointer;
   transition: opacity 0.3s linear;
-  &:hover: {
+  &:hover {
     opacity: 1;
   }
 `
