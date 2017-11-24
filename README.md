@@ -40,7 +40,10 @@ Both actions need to be dispatched with a payload as below:
 return {
     type: API_FAILURE,
     payload: {
-      errorMessage
+      errorMessage: {
+       type: 'error',
+       message: 'My failure message goes here'
+     }
     }
 };
 
@@ -52,7 +55,10 @@ or ADD_ALERT as per:
 return {
    type: ADD_ALERT,
    payload: {
-     message
+     message: {
+       type: 'success',
+       message: 'My alert message goes here'
+     }
    }
  };
 ```
