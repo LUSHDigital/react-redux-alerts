@@ -62,7 +62,7 @@ var Alert = (function (_Component) {
   Alert.prototype.componentDidMount = function componentDidMount() {
     var alert = this.props.alert;
 
-    this.props.actions.setAlertClear(alert.id, alert.time);
+    this.props.actions.setAlertClear(alert.id, alert.alert.time);
   };
 
   Alert.prototype.render = function render() {
