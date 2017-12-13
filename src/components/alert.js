@@ -69,7 +69,7 @@ class Alert extends Component {
 
   componentDidMount() {
     const { alert } = this.props;
-    this.props.actions.setAlertClear(alert.id, alert.time);
+    this.props.actions.setAlertClear(alert.id, alert.alert.time);
   }
 
   render() {
