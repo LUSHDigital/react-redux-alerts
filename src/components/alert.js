@@ -68,7 +68,8 @@ const Close = styled.a`
 class Alert extends Component {
 
   componentDidMount() {
-    this.props.actions.setAlertClear(this.props.alert.id);
+    const { alert } = this.props;
+    this.props.actions.setAlertClear(alert.id, alert.alert.time);
   }
 
   render() {

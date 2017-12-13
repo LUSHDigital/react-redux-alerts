@@ -13,7 +13,7 @@ yarn add @salocreative/react-redux-alerts
 Include the Alerts component at the top of the component it's required in.
 
 ```
-import Alerts from '@salocreative/react-redux-alerts';
+import { Alerts } from '@salocreative/react-redux-alerts';
 ```
 
 Implement as follows
@@ -58,6 +58,23 @@ return {
      message: {
        type: 'success',
        message: 'My alert message goes here'
+     }
+   }
+ };
+```
+
+## Setting alert timeout
+
+The alerts will automatically remove themselves after 5 seconds. You can customise this in the payload by setting an additional key in the message of time (this is in seconds). eg.
+
+```
+return {
+   type: ADD_ALERT,
+   payload: {
+     message: {
+       type: 'success',
+       message: 'My alert message goes here',
+       time: 20
      }
    }
  };
