@@ -92,8 +92,8 @@ return {
 
 ### Further Development
 - [ ] Add ability to set dismissable true/false
-- [ ] Ability to set timeouts per alert
-- [ ] Improve documentation
+- [x] Ability to set timeouts per alert
+- [x] Improve documentation
 
 ## LICENSE
 
