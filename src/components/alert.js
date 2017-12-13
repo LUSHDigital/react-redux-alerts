@@ -35,7 +35,7 @@ const AlertWrapper = styled.div`
   &:after {
     display: block;
     content: "";
-    width: 0;
+    width: 100%;
     left: 0;
     top: 0;
     position: absolute;
@@ -43,8 +43,8 @@ const AlertWrapper = styled.div`
     background: rgba(255,255,255,0.3);
     webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    webkit-animation: ${ loadSwipe } 5s linear;
-    animation: ${ loadSwipe } 2s linear infinite;      
+    webkit-animation: ${ loadSwipe } ${ props => props.time ? props.time : 5 }s linear;
+    animation: ${ loadSwipe } ${ props => props.time ? props.time : 5 }s linear infinite;      
   }
 `;
 
@@ -76,7 +76,7 @@ class Alert extends Component {
     const { alert, colours } = this.props;
     if (alert) {
       return (
-          <AlertWrapper className={ `alert ${ alert.alert.type }` } colours={ colours }>
+          <AlertWrapper className={ `alert ${ alert.alert.type }` } colours={ colours } time={ alert.alert.time }>
             <div className='container'>
               <div className='cell'>
                 { alert.alert.message}
@@ -98,10 +98,6 @@ Alert.propTypes = {
   clearAlert: PropTypes.func,
   colours: PropTypes.object,
   closeIcon: PropTypes.any
-};
-
-Alert.defaultProps = {
-  alert: ''
 };
 
 function mapDispatchToProps(dispatch) {

@@ -1,5 +1,9 @@
 #Changelog
 
+## v3.1.1
+
+- Updating progress bar styles to work with new dynamic times
+
 ## v3.1.0
 
 - Fixing key mismatch for times
