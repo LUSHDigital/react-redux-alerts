@@ -39,7 +39,7 @@ function clearAllSystemAlerts() {
 function setAlertClear(alert) {
   var time = arguments.length <= 1 || arguments[1] === undefined ? 5 : arguments[1];
 
-  var timeout = !isNaN(parseInt(timeout, 10)) ? parseInt(timeout, 10) : 5;
+  var timeout = !isNaN(parseInt(time, 10)) ? parseInt(time, 10) : 5;
   var dismissTime = timeout * 1000;
   return function (dispatch) {
     dispatch(willClearSystemAlert(alert));

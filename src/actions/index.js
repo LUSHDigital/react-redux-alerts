@@ -27,7 +27,7 @@ export function clearAllSystemAlerts() {
 }
 
 export function setAlertClear(alert, time = 5) {
-  const timeout = !isNaN(parseInt(timeout, 10)) ? parseInt(timeout, 10) : 5;
+  const timeout = !isNaN(parseInt(time, 10)) ? parseInt(time, 10) : 5;
   const dismissTime = timeout * 1000;
   return function(dispatch) {
     dispatch(willClearSystemAlert(alert));
