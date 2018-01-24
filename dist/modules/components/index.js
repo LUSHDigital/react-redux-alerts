@@ -2,11 +2,15 @@
 
 exports.__esModule = true;
 
+var _templateObject = _taggedTemplateLiteralLoose(['\n  width: 100%;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n'], ['\n  width: 100%;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n']);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function _taggedTemplateLiteralLoose(strings, raw) { strings.raw = raw; return strings; }
 
 var _react = require('react');
 
@@ -16,9 +20,15 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
 var _alert = require('./alert');
 
 var _alert2 = _interopRequireDefault(_alert);
+
+var AlertsContainer = _styledComponents2['default'].div(_templateObject);
 
 var Alerts = (function (_Component) {
   _inherits(Alerts, _Component);
@@ -36,7 +46,7 @@ var Alerts = (function (_Component) {
 
     if (alerts.length > 0) {
       return _react2['default'].createElement(
-        'div',
+        AlertsContainer,
         { className: 'alerts__wrapper' },
         alerts.map(function (alert, i) {
           return _react2['default'].createElement(_alert2['default'], { key: i, i: i,

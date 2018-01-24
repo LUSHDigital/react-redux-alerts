@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import Alert from './alert';
+
+const AlertsContainer = styled.div`
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+`;
 
 export default class Alerts extends Component {
 
@@ -9,14 +18,14 @@ export default class Alerts extends Component {
     const { alerts } = this.props;
     if (alerts.length > 0) {
       return (
-          <div className='alerts__wrapper'>
+          <AlertsContainer className='alerts__wrapper'>
             { alerts.map((alert, i) =>
                 (<Alert key={ i } i={ i }
                         alert={ alert }
                         closeIcon={ this.props.closeIcon }
                         colours={ this.props.colours } />)
             )}
-          </div>
+          </AlertsContainer>
       );
     }
     return null;

@@ -1,6 +1,6 @@
 {
   "name": "@salocreative/react-redux-alerts",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "description": "React-Redux component for handling system alerts",
   "main": "./dist/modules/index.js",
   "scripts": {
@@ -10,7 +10,8 @@
     "bundle": "npm run bundle-dist && npm run bundle-modules",
     "demo": "webpack-dev-server --config webpack.config.demo.js",
     "lint": "eslint ./src",
-    "test": "npm run lint && mocha -R spec --compilers jsx:test/compiler.js ./src/*Test.jsx"
+    "test": "npm run lint && mocha -R spec --compilers jsx:test/compiler.js ./src/*Test.jsx",
+    "release": "chmod +x release.sh && ./release.sh"
   },
   "author": "Rich Comber",
   "repository": {
