@@ -7,7 +7,7 @@ import Alert from './alert';
 const AlertsContainer = styled.div`
   width: 100%;
   position: fixed;
-  top: 0;
+  top: ${ props => props.topOffset }px;
   left: 0;
   z-index: 9999;
 `;
@@ -15,10 +15,10 @@ const AlertsContainer = styled.div`
 export default class Alerts extends Component {
 
   render() {
-    const { alerts } = this.props;
+    const { alerts, topOffset } = this.props;
     if (alerts.length > 0) {
       return (
-          <AlertsContainer className='alerts__wrapper'>
+          <AlertsContainer className='alerts__wrapper' topOffset={ topOffset }>
             { alerts.map((alert, i) =>
                 (<Alert key={ i } i={ i }
                         alert={ alert }
@@ -35,7 +35,8 @@ export default class Alerts extends Component {
 Alerts.propTypes = {
   alerts: PropTypes.array,
   closeIcon: PropTypes.any,
-  colours: PropTypes.object
+  colours: PropTypes.object,
+  topOffset: PropTypes.number
 };
 
 Alerts.defaultProps = {
@@ -46,5 +47,6 @@ Alerts.defaultProps = {
     warning: '#F6A623',
     info: '#8F8F8F',
     success: '#00A44C'
-  }
+  },
+  topOffset: 100
 };

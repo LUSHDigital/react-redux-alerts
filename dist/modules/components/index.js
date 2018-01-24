@@ -2,7 +2,7 @@
 
 exports.__esModule = true;
 
-var _templateObject = _taggedTemplateLiteralLoose(['\n  width: 100%;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n'], ['\n  width: 100%;\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 9999;\n']);
+var _templateObject = _taggedTemplateLiteralLoose(['\n  width: 100%;\n  position: fixed;\n  top: ', 'px;\n  left: 0;\n  z-index: 9999;\n'], ['\n  width: 100%;\n  position: fixed;\n  top: ', 'px;\n  left: 0;\n  z-index: 9999;\n']);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -28,7 +28,9 @@ var _alert = require('./alert');
 
 var _alert2 = _interopRequireDefault(_alert);
 
-var AlertsContainer = _styledComponents2['default'].div(_templateObject);
+var AlertsContainer = _styledComponents2['default'].div(_templateObject, function (props) {
+  return props.topOffset;
+});
 
 var Alerts = (function (_Component) {
   _inherits(Alerts, _Component);
@@ -42,12 +44,14 @@ var Alerts = (function (_Component) {
   Alerts.prototype.render = function render() {
     var _this = this;
 
-    var alerts = this.props.alerts;
+    var _props = this.props;
+    var alerts = _props.alerts;
+    var topOffset = _props.topOffset;
 
     if (alerts.length > 0) {
       return _react2['default'].createElement(
         AlertsContainer,
-        { className: 'alerts__wrapper' },
+        { className: 'alerts__wrapper', topOffset: topOffset },
         alerts.map(function (alert, i) {
           return _react2['default'].createElement(_alert2['default'], { key: i, i: i,
             alert: alert,
@@ -67,7 +71,8 @@ exports['default'] = Alerts;
 Alerts.propTypes = {
   alerts: _propTypes2['default'].array,
   closeIcon: _propTypes2['default'].any,
-  colours: _propTypes2['default'].object
+  colours: _propTypes2['default'].object,
+  topOffset: _propTypes2['default'].number
 };
 
 Alerts.defaultProps = {
@@ -82,6 +87,7 @@ Alerts.defaultProps = {
     warning: '#F6A623',
     info: '#8F8F8F',
     success: '#00A44C'
-  }
+  },
+  topOffset: 100
 };
 module.exports = exports['default'];
