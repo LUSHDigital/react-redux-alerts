@@ -48,5 +48,5 @@ Alerts.defaultProps = {
     info: '#8F8F8F',
     success: '#00A44C'
   },
-  topOffset: 100
+  topOffset: 0
 };
