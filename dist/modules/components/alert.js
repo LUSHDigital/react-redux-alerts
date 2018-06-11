@@ -3,7 +3,7 @@
 exports.__esModule = true;
 
 var _templateObject = _taggedTemplateLiteralLoose(['\n  from {\n    width: 0\n  },\n  to {\n    width: 100%\n  }\n'], ['\n  from {\n    width: 0\n  },\n  to {\n    width: 100%\n  }\n']),
-    _templateObject2 = _taggedTemplateLiteralLoose(['\n  width: 100%;\n  background: ', ';\n  color: #fff;\n  padding: 5px 10px;\n  font-size: 12px;\n  text-align: left;\n  position: relative;\n  &.error {\n    background: ', ';\n  }\n  &.warning {\n    background: ', ';\n  }\n  &.info {\n    background: ', ';\n  }\n  &:after {\n    display: block;\n    content: "";\n    width: 100%;\n    left: 0;\n    top: 0;\n    position: absolute;\n    height: 2px;\n    background: rgba(255,255,255,0.3);\n    webkit-animation-fill-mode: both;\n    animation-fill-mode: both;\n    webkit-animation: ', ' ', 's linear;\n    animation: ', ' ', 's linear infinite;      \n  }\n'], ['\n  width: 100%;\n  background: ', ';\n  color: #fff;\n  padding: 5px 10px;\n  font-size: 12px;\n  text-align: left;\n  position: relative;\n  &.error {\n    background: ', ';\n  }\n  &.warning {\n    background: ', ';\n  }\n  &.info {\n    background: ', ';\n  }\n  &:after {\n    display: block;\n    content: "";\n    width: 100%;\n    left: 0;\n    top: 0;\n    position: absolute;\n    height: 2px;\n    background: rgba(255,255,255,0.3);\n    webkit-animation-fill-mode: both;\n    animation-fill-mode: both;\n    webkit-animation: ', ' ', 's linear;\n    animation: ', ' ', 's linear infinite;      \n  }\n']),
+    _templateObject2 = _taggedTemplateLiteralLoose(['\n  width: 100%;\n  background: ', ';\n  color: #fff;\n  padding: 5px 10px;\n  font-size: 12px;\n  text-align: left;\n  position: relative;\n  &.error {\n    background: ', ';\n  }\n  &.warning {\n    background: ', ';\n  }\n  &.info {\n    background: ', ';\n  }\n  &:after {\n    display: block;\n    content: "";\n    width: 100%;\n    left: 0;\n    top: 0;\n    position: absolute;\n    height: ', ';\n    background: rgba(255,255,255,0.3);\n    webkit-animation-fill-mode: both;\n    animation-fill-mode: both;\n    webkit-animation: ', ' ', 's linear;\n    animation: ', ' ', 's linear infinite;      \n  }\n'], ['\n  width: 100%;\n  background: ', ';\n  color: #fff;\n  padding: 5px 10px;\n  font-size: 12px;\n  text-align: left;\n  position: relative;\n  &.error {\n    background: ', ';\n  }\n  &.warning {\n    background: ', ';\n  }\n  &.info {\n    background: ', ';\n  }\n  &:after {\n    display: block;\n    content: "";\n    width: 100%;\n    left: 0;\n    top: 0;\n    position: absolute;\n    height: ', ';\n    background: rgba(255,255,255,0.3);\n    webkit-animation-fill-mode: both;\n    animation-fill-mode: both;\n    webkit-animation: ', ' ', 's linear;\n    animation: ', ' ', 's linear infinite;      \n  }\n']),
     _templateObject3 = _taggedTemplateLiteralLoose(['\n  position: absolute;\n  top: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  right: 0;\n  width: 30px;\n  height: 100%;\n  opacity: 0.6;\n  cursor: pointer;\n  transition: opacity 0.3s linear;\n  &:hover {\n    opacity: 1;\n  }\n'], ['\n  position: absolute;\n  top: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  right: 0;\n  width: 30px;\n  height: 100%;\n  opacity: 0.6;\n  cursor: pointer;\n  transition: opacity 0.3s linear;\n  &:hover {\n    opacity: 1;\n  }\n']);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj['default'] = obj; return newObj; } }
@@ -46,6 +46,8 @@ var AlertWrapper = _styledComponents2['default'].div(_templateObject2, function 
   return props.colours.warning;
 }, function (props) {
   return props.colours.info;
+}, function (props) {
+  return props.dismissible ? '2px' : '0px';
 }, loadSwipe, function (props) {
   return props.time ? props.time : 5;
 }, loadSwipe, function (props) {
@@ -66,12 +68,41 @@ var Alert = (function (_Component) {
   Alert.prototype.componentDidMount = function componentDidMount() {
     var alert = this.props.alert;
 
-    this.props.actions.setAlertClear(alert.id, alert.alert.time);
+    if (this.isDismissible() && this.hasAutoTimeout()) {
+      this.props.actions.setAlertClear(alert.id, alert.alert.time);
+    }
+  };
+
+  Alert.prototype.isDismissible = function isDismissible() {
+    var alert = this.props.alert;
+
+    return typeof alert.alert.dismissible === 'undefined' || alert.alert.dismissible;
+  };
+
+  Alert.prototype.hasAutoTimeout = function hasAutoTimeout() {
+    var alert = this.props.alert;
+
+    return typeof alert.alert.autoTimeout === 'undefined' || alert.alert.autoTimeout;
+  };
+
+  Alert.prototype.renderClose = function renderClose() {
+    var _this = this;
+
+    var alert = this.props.alert;
+
+    if (this.isDismissible()) {
+      return _react2['default'].createElement(
+        Close,
+        { className: 'alert__close', onClick: function () {
+            return _this.props.actions.clearAlert(_this.props.alert.id);
+          }, role: 'button', tabIndex: '-1' },
+        this.props.closeIcon
+      );
+    }
+    return null;
   };
 
   Alert.prototype.render = function render() {
-    var _this = this;
-
     var _props = this.props;
     var alert = _props.alert;
     var colours = _props.colours;
@@ -79,7 +110,7 @@ var Alert = (function (_Component) {
     if (alert) {
       return _react2['default'].createElement(
         AlertWrapper,
-        { className: 'alert ' + alert.alert.type, colours: colours, time: alert.alert.time },
+        { className: 'alert ' + alert.alert.type, colours: colours, time: alert.alert.time, dismissible: this.isDismissible() && this.hasAutoTimeout() },
         _react2['default'].createElement(
           'div',
           { className: 'container' },
@@ -87,13 +118,7 @@ var Alert = (function (_Component) {
             'div',
             { className: 'cell' },
             alert.alert.message,
-            _react2['default'].createElement(
-              Close,
-              { className: 'alert__close', onClick: function () {
-                  return _this.props.actions.clearAlert(_this.props.alert.id);
-                }, role: 'button', tabIndex: '-1' },
-              this.props.closeIcon
-            )
+            this.renderClose()
           )
         )
       );

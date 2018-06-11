@@ -15,9 +15,9 @@ module.exports = {
 
   // TODO: use your component name here
   output: {
-    filename: 'dist/react-component-starter-kit.js',
+    filename: 'dist/react-redux-alerts.js',
     libraryTarget: 'umd',
-    library: 'ReactComponentStarterKit'
+    library: 'ReactReduxAlerts'
   },
 
   plugins: [
