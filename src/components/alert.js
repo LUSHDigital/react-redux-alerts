@@ -114,6 +114,15 @@ class Alert extends Component {
   }
 }
 
+Alert.defaultProps = {
+  colours: {
+    error: '#D0021B',
+    warning: '#F6A623',
+    info: '#8F8F8F',
+    success: '#00A44C'
+  }
+}
+
 Alert.propTypes = {
   alert: PropTypes.any,
   setAlertClear: PropTypes.func,
